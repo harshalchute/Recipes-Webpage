@@ -1,0 +1,9 @@
+# dependencies
+npm install express --save
+npm install mongoose --save
+npm install cors --save
+npm install dotenv --save
+# npm install cookie-parser --save
+
+# devDependencies
+npm install nodemon --save-dev
