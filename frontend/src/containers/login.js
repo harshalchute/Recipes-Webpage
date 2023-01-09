@@ -38,7 +38,7 @@ const Login = () => {
 
   return (<div>
     <div className="block-back">
-      <img className="img-back" src="assets/images/1.jpg" alt="log img" />
+      <img className="img-back" src="assets/images/2.jpg" alt="log img" />
     </div>
     <div className='register-form'>
       <Card style={{ width: '100%' }} className="shadow-lg card-back">
