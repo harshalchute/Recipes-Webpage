@@ -4,10 +4,11 @@ const mongoose = require('mongoose')
 const app = express();
 const cors = require("cors");
 const port = process.env.PORT | 8081;
+const mongo = process.env.MONGODB_URL | "mongodb+srv://root:root@bezen.m0zolsz.mongodb.net/test";
 
 // Mongodb Connection...
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect(mongo, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
