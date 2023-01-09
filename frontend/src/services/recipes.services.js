@@ -1,5 +1,6 @@
 import axios from "axios";
 const BASE_URI = "http://localhost:8081";
+// const BASE_URI = "https://recipe-webpage.web.app";
 
 export const recipesService = async () => {
     try {
@@ -15,7 +16,7 @@ export const recipesService = async () => {
 export const recipeService = async (recipeId) => {
     try {
         const res = await axios.get(`${BASE_URI}/recipes/${recipeId}`);
-        // console.log(res);s
+        // console.log(res);
         if (res.data.success) {
             return res.data;
         }
