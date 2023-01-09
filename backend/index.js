@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose')
+const path = require('path')
+
 const app = express();
 const cors = require("cors");
 const port = process.env.PORT | 8081;
@@ -21,6 +23,9 @@ mongoose.connect('mongodb+srv://root:root@bezen.m0zolsz.mongodb.net/test', {
 app.use(express.json());
 app.use(cors());
 
+// Have Node serve the files for our built React app
+app.use(express.static(path.resolve(__dirname, './client/build')));
+
 // Testing app routs
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
@@ -29,6 +34,13 @@ app.use(cors());
 // Routes
 app.use("", require("./routes/auth.routes"));
 app.use("/recipes", require("./routes/recipe.routes"));
+
+
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
+
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
