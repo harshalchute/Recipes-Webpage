@@ -8,7 +8,7 @@ const mongo = process.env.MONGODB_URL | "mongodb+srv://root:root@bezen.m0zolsz.m
 
 // Mongodb Connection...
 mongoose.set('strictQuery', true);
-mongoose.connect(mongo, {
+mongoose.connect('mongodb+srv://root:root@bezen.m0zolsz.mongodb.net/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
